@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <DisableWinExeOutputInference>true</DisableWinExeOutputInference>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+  <PropertyGroup>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>tevana_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Windows.Extensions" Version="6.0.0-preview.1.21102.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="tevana.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
