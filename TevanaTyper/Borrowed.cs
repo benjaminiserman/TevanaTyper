@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Collections.Generic;
-using System.Linq;
 using System.IO;
 using System.Windows;
 using System.Runtime.InteropServices;
