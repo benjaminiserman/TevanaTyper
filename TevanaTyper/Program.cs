@@ -385,8 +385,6 @@ namespace TevanaTyper
             if (beforeUpper && nextUpper) return apostropheIndex + 3;
 
             return apostropheIndex;
-
-            //throw new ArgumentException("Improper apostrophe usage detected.");
         }
 
         public static int GetCapital(bool startWord, bool beforeUpper, bool nextUpper)
