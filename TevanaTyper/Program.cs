@@ -42,6 +42,11 @@ namespace TevanaTyper
             }
         }
 
+        /// <summary>
+        /// Translates english text into tevana, writes it to file, and copies it to the clipboard.
+        /// </summary>
+        /// <param name="s">The given english text.</param>
+        /// <param name="tileset">The tileset to use in the image.</param>
         static void Write(string s, Tileset tileset)
         {
             s = Transformer.Transform(s);
