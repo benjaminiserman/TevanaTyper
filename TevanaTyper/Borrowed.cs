@@ -18,10 +18,8 @@ namespace TevanaTyper
         public static void SetClipboardImage(Bitmap image, Bitmap imageNoTr, DataObject data)
         {
             Clipboard.Clear();
-            if (data == null)
-                data = new DataObject();
-            if (imageNoTr == null)
-                imageNoTr = image;
+            data ??= new DataObject();
+            imageNoTr ??= image;
             using MemoryStream pngMemStream = new();
             using MemoryStream dibMemStream = new();
 
