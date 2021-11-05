@@ -15,7 +15,6 @@
             }
             s = working;
 
-
             int vowelCount = 0;
 
             string t = string.Empty;
