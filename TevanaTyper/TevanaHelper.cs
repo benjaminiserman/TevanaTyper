@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TevanaTyper
+﻿namespace TevanaTyper
 {
     public static class TevanaHelper
     {
