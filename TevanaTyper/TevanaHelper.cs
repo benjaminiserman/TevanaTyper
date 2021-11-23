@@ -10,7 +10,7 @@ namespace TevanaTyper
         /// <param name="beforeUpper">Whether or not it is after an upper-lined character.</param>
         /// <param name="nextUpper">Whether or not is before an upper-lined character. </param>
         /// <returns>The index of the correct character.</returns>
-        public static int GetLowerSlot(bool beforeUpper, bool nextUpper)
+        public static int GetLowerSlot(bool beforeUpper, bool nextUpper) => (beforeUpper, nextUpper) switch
         {
             (false, false) => 30,
             (true, false) => 31,
