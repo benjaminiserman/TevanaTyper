@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace TevanaTyper
 {
@@ -38,8 +35,18 @@ namespace TevanaTyper
             VowelHeight = vowelHeight;
         }
 
+        /// <summary>
+        /// Gets the x-coordinate of the character at the given index.
+        /// </summary>
+        /// <param name="x">The index of the character to be found.</param>
+        /// <returns>The x-coordinate of the character at the given index.</returns>
         private int GetTilemapSlotX(int x) => x * (CharWidth + CharSpacing);
 
+        /// <summary>
+        /// Gets the dimensions of an image drawn from this tileset with the given <paramref name="blocks"/>.
+        /// </summary>
+        /// <param name="blocks">The given list of string blocks.</param>
+        /// <returns>The dimensions of the resulting file in (int x, int y) form.</returns>
         public (int, int) GetDimensions(List<string> blocks)
         {
             int rows = blocks.Count(x => x == "\n") + 1;
