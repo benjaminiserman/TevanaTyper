@@ -17,7 +17,6 @@ namespace TevanaTyper
             (true, true) => 32,
             (false, true) => 33,
         };
-
          
         public static int GetApostrophe(string block, bool beforeUpper, bool nextUpper)
         {
