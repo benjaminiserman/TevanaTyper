@@ -111,6 +111,7 @@ namespace TevanaTyper
                 int offs = startIndex + (littleEndian ? index : lastByte - index);
                 value += (uint)(data[offs] << (8 * index));
             }
+
             return value;
         }
 

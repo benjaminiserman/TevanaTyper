@@ -19,11 +19,10 @@ namespace TevanaTyper
                 working += TevanaHelper.Match(subStrings[i]);
                 if (i != subStrings.Length - 1) working += "\n";
             }
+
             s = working;
 
-
             int vowelCount = 0;
-
             string t = string.Empty;
 
             for (int i = 0; i < s.Length; i++)
@@ -43,11 +42,8 @@ namespace TevanaTyper
                     {
                         vowelCount++;
 
-                        if (vowelCount == 1 && i < s.Length - 2 && s[i + 1].IsVowel() && s[i + 2].IsConsonant())
-                        {
-                            Reset();
-                        }
-                        if (vowelCount == 2 && i < s.Length - 1 && s[i + 1].IsVowel())
+                        if ((vowelCount == 1 && i < s.Length - 2 && s[i + 1].IsVowel() && s[i + 2].IsConsonant()) ||
+                            (vowelCount == 2 && i < s.Length - 1 && s[i + 1].IsVowel()))
                         {
                             Reset();
                         }

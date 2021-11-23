@@ -70,7 +70,7 @@ namespace TevanaTyper
         public void DrawBlock(Bitmap bitmap, int x, int y, string block, bool startWord, bool beforeUpper, bool nextUpper)
         {
             x *= CharWidth;
-            y *= (CharHeight + 2);
+            y *= CharHeight + 2;
 
             Bitmap thisBlock = new(CharWidth, CharHeight);
 
@@ -114,7 +114,6 @@ namespace TevanaTyper
                             new Rectangle(x + VowelOffsetX + TevanaHelper.LowerOffset(beforeUpper, nextUpper), y + 12, VowelWidth, VowelHeight), true);
                     }
                 }
-
             }
             else if (char.IsDigit(block[0]))
             {

@@ -8,52 +8,48 @@ namespace TevanaTyper
 {
     public static class TevanaHelper
     {
-        public static int GetLowerSlot(bool beforeUpper, bool nextUpper)
+        public static int GetLowerSlot(bool beforeUpper, bool nextUpper) => (beforeUpper, nextUpper) switch
         {
-            if (!beforeUpper && !nextUpper) return 30;
-            if (beforeUpper && !nextUpper) return 31;
-            if (beforeUpper && nextUpper) return 32;
-            if (!beforeUpper && nextUpper) return 33;
-
-            throw new ArgumentException("Impossible parameters passed. Are you running this on a quantum computer?");
-        }
+            (false, false) => 30,
+            (true, false) => 31,
+            (true, true) => 32,
+            (false, true) => 33,
+        };
 
         public static int GetApostrophe(string block, bool beforeUpper, bool nextUpper)
         {
             int apostropheIndex = '\''.Index();
 
-            if (block.Length == 1) return apostropheIndex;
-
-            if (!beforeUpper && !nextUpper) return apostropheIndex + 1;
-            if (!beforeUpper && nextUpper) return apostropheIndex + 2;
-            if (beforeUpper && nextUpper) return apostropheIndex + 3;
-
-            return apostropheIndex;
+            return block.Length == 1
+                ? apostropheIndex
+                : (beforeUpper, nextUpper) switch
+                {
+                    (false, false) => apostropheIndex + 1,
+                    (false, true) => apostropheIndex + 2,
+                    (true, true) => apostropheIndex + 3,
+                    (true, false) => apostropheIndex,
+                };
         }
 
         public static int GetCapital(bool startWord, bool beforeUpper, bool nextUpper)
         {
             int capitalIndex = 'C'.Index();
 
-            if (startWord)
-            {
-                if (nextUpper) return capitalIndex;
-                else return capitalIndex + 2;
-            }
-            else
-            {
-                if (beforeUpper) return capitalIndex + 1;
-                else return capitalIndex + 3;
-            }
+            return startWord 
+                ? nextUpper 
+                    ? capitalIndex 
+                    : capitalIndex + 2 
+                : beforeUpper 
+                    ? capitalIndex + 1 
+                    : capitalIndex + 3;
         }
 
-        public static int LowerOffset(bool beforeUpper, bool nextUpper)
+        public static int LowerOffset(bool beforeUpper, bool nextUpper) => (beforeUpper, nextUpper) switch
         {
-            if (beforeUpper && !nextUpper) return +2;
-            if (!beforeUpper && nextUpper) return -2;
-
-            return 0;
-        }
+            (true, false) => +2,
+            (false, true) => -2,
+            _ => 0
+        };
 
         public static int GetNumberSlot(int x) => x == 0 ? 9 : x - 1;
 
